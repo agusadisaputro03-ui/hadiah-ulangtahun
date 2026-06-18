@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Untuk Sayangku ❤️</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+font-family:Arial,sans-serif;
+background:linear-gradient(135deg,#ff9eb5,#ffd6df);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.card{
+width:360px;
+padding:20px;
+background:rgba(255,255,255,.95);
+border-radius:25px;
+text-align:center;
+box-shadow:0 0 30px rgba(0,0,0,.2);
+z-index:10;
+}
+
+img{
+width:220px;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+}
+
+h1{
+color:#ff4081;
+animation:geser 2s infinite alternate;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:25px;
+background:#ff4081;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.surat{
+display:none;
+padding:15px;
+margin-top:10px;
+background:#fff0f5;
+border-radius:15px;
+animation:muncul 1s;
+}
+
+.hati,.mawar{
+position:absolute;
+animation:jatuh linear infinite;
+}
+
+@keyframes jatuh{
+0%{
+transform:translateY(-100px);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+@keyframes muncul{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes geser{
+from{transform:translateX(-8px);}
+to{transform:translateX(8px);}
+}
+
+.fire{
+position:absolute;
+font-size:25px;
+animation:boom 1s forwards;
+}
+
+@keyframes boom{
+0%{
+transform:scale(0);
+opacity:1;
+}
+100%{
+transform:scale(3);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img id="foto" src="foto1.jpg">
+
+<h1>🎂 Selamat Ulang Tahun ❤️</h1>
+
+<p>
+Semoga panjang umur, sehat selalu,
+bahagia setiap hari, dan semua impianmu tercapai.
+Terima kasih sudah menjadi bagian terindah dalam hidupku.
+</p>
+
+<button onclick="bukaHadiah()">
+🎁 Buka Hadiah
+</button>
+
+<div id="suratbox" style="display:none">
+
+<button onclick="s1()">
+💌 Surat 1
+</button>
+
+<div id="a1" class="surat">
+
+Selamat ulang tahun sayang.
+
+Terima kasih sudah hadir dalam hidupku.
+Kehadiranmu membuat hariku lebih indah.
+
+❤️
+
+</div>
+
+<button id="b2"
+onclick="s2()"
+style="display:none">
+
+💌 Surat 2
+
+</button>
+
+<div id="a2" class="surat">
+
+Aku mungkin tidak sempurna,
+tetapi aku akan selalu berusaha membuatmu tersenyum.
+
+Aku ingin menemanimu dalam setiap cerita hidupmu.
+
+💖
+
+</div>
+
+
+<button id="b3"
+onclick="s3()"
+style="display:none">
+
+💌 Surat 3
+
+</button>
+
+<div id="a3" class="surat">
+
+Aku berharap kita bisa terus bersama,
+tertawa bersama,
+dan menciptakan kenangan indah lainnya.
+
+Aku sayang kamu.
+
+Selamat ulang tahun cintaku.
+
+🎂❤️
+
+</div>
+
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="lagu.mp3">
+</audio>
+
+<script>
+
+let gambar=[
+"foto1.jpg",
+"foto2.jpg"
+];
+
+let i=0;
+
+setInterval(()=>{
+
+i++;
+
+if(i>=gambar.length)i=0;
+
+document.getElementById("foto").src=gambar[i];
+
+},3000);
+
+
+
+function bukaHadiah(){
+
+document.getElementById("suratbox").style.display="block";
+
+kembangApi();
+
+}
+
+
+function s1(){
+
+a1.style.display="block";
+b2.style.display="inline-block";
+
+}
+
+
+function s2(){
+
+a2.style.display="block";
+b3.style.display="inline-block";
+
+}
+
+
+function s3(){
+
+a3.style.display="block";
+
+}
+
+
+
+for(let i=0;i<30;i++){
+
+let h=document.createElement("div");
+
+h.className="hati";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=(15+25*Math.random())+"px";
+
+h.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(h);
+
+}
+
+
+
+for(let i=0;i<20;i++){
+
+let m=document.createElement("div");
+
+m.className="mawar";
+
+m.innerHTML="🌹";
+
+m.style.left=Math.random()*100+"vw";
+
+m.style.fontSize=(20+20*Math.random())+"px";
+
+m.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(m);
+
+}
+
+
+
+function kembangApi(){
+
+for(let i=0;i<25;i++){
+
+let f=document.createElement("div");
+
+f.className="fire";
+
+f.innerHTML="🎆";
+
+f.style.left=Math.random()*100+"vw";
+
+f.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(f);
+
+setTimeout(()=>{
+
+f.remove();
+
+},1000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
